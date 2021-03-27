@@ -1,5 +1,5 @@
 import './App.css';
-import compile from '../compile'
+import compile from '../locationForm'
 
 function App() {
   return (
