@@ -13,10 +13,16 @@ class LocationForm extends Component {
     componentDidMount() {
         console.log("CDM", this.state)
     }
+
+    handleSubmit = async () => {
+        
+    }
+
+
     render() {
         console.log('render', this.state)
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <fieldset>
                     <legend>Enter a Location</legend>
                     <label

@@ -7,7 +7,6 @@ const STATES = [
     { name: 'COLORADO', abbreviation: 'CO'},
     { name: 'CONNECTICUT', abbreviation: 'CT'},
     { name: 'DELAWARE', abbreviation: 'DE'},
-    { name: 'DISTRICT OF COLUMBIA', abbreviation: 'DC'},
     { name: 'FLORIDA', abbreviation: 'FL'},
     { name: 'GEORGIA', abbreviation: 'GA'},
     { name: 'HAWAII', abbreviation: 'HI'},
