@@ -1,11 +1,12 @@
 import './App.css';
-import compile from '../locationForm'
+import LocationForm from '../LocationForm.jsx'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
       </header>
+      <LocationForm/>
     </div>
   );
 }
