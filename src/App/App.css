@@ -8,3 +8,35 @@
     position: absolute;
     width: 1px;
 }
+
+.App {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(117, 19, 93, 0)), url('../photos/bkg-sunny.jpg');
+    background-size: cover;
+    background-position: bottom;
+    min-height: 100vh;
+    position: relative;
+    padding: 1rem;
+}
+.App * {
+    outline: black solid 1px;
+    padding: 3px;
+}
+
+header {
+    min-width: 100%;
+}
+
+main {
+    display: block;
+    min-width: 100%;
+}
+
+.sec-1 {
+    margin: 1rem auto;
+}
+
+footer {
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+}

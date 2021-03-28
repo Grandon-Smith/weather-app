@@ -2,20 +2,14 @@ import React, { Component } from 'react';
 import StateList from './StateList'
 
 class LocationForm extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            city: "",
-            state: "",
-        }
-    }
+    
 
     componentDidMount() {
         console.log("CDM", this.state)
     }
 
     handleSubmit = async () => {
-        
+
     }
 
 
