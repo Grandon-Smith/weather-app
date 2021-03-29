@@ -9,8 +9,35 @@
     width: 1px;
 }
 
-.App {
+.storm {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-mob-storm.jpg');
+}
+
+.clear-night {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-mob-clear-night.jpg');
+}
+
+.cloudy {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-mob-cloudy.jpg');
+}
+
+.snowy {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-mob-snow.jpg');
+}
+
+.rainy {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-mob-rain.jpg');
+}
+
+.sunny {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-mob-sunny.jpg');
+}
+
+.default {
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-sunny.jpg');
+}
+
+.App {
     background-size: cover;
     background-position: bottom;
     min-height: 100vh;

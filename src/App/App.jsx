@@ -17,7 +17,18 @@ class App extends Component {
    
   componentDidMount() {
     console.log("App CDM")
-}
+  }
+
+  chooseBackground() {
+    let bkg = '';
+    if(this.state.weatherData) {
+      // bkg === 'default'
+    } 
+    // else {
+    //   bkg === this.state.weatherData
+    // };
+    // return bkg;
+  }
 
   handleSubmit = async (e) => {
     e.preventDefault()
@@ -93,15 +104,15 @@ class App extends Component {
           <section className="sec-2">
             <div className="sec-2-1">
               <p>Humidity:</p>
-              <p>{weatherData == null ? placeHolder : Math.round(weatherData.main.temp_max)}%</p>
+              <p>{weatherData == null ? placeHolder : Math.round(weatherData.main.humidity)}%</p>
             </div>
             <div className="sec-2-2">
               <p>Wind:</p>
-              <p>{weatherData == null ? placeHolder : Math.round(weatherData.wind.speed)}%</p>
+              <p>{weatherData == null ? placeHolder : Math.round(weatherData.wind.speed)}mph</p>
             </div>
             <div className="sec-2-3">
               <p>Feels Like:</p>
-              <p>{weatherData == null ? placeHolder : Math.round(weatherData.wind.speed)}°</p>
+              <p>{weatherData == null ? placeHolder : Math.round(weatherData.main.feels_like)}°</p>
             </div>
           </section>
         </main>
