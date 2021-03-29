@@ -19,19 +19,31 @@ class App extends Component {
     console.log("App CDM")
   }
 
-  chooseBackground() {
+  setBackground = () => {
+    console.log("SET BKG")
     let bkg = '';
-    if(this.state.weatherData) {
-      // bkg === 'default'
-    } 
-    // else {
-    //   bkg === this.state.weatherData
-    // };
-    // return bkg;
+    if(this.state.weatherData == null) {
+      bkg = 'default';
+    } else {
+      const { id } = this.state.weatherData.weather[0].id
+      if(id >= 200) {
+        bkg = 'stormy';
+      } else if(id >= 300) {
+        bkg = 'rainy';
+      } else if(id >= 600 && id < 800) {
+        bkg = 'snowy';
+      } else if(id === 800) {
+        bkg = 'sunny';
+      } else if(id > 800) {
+        bkg = 'cloudy';
+      }
+    }
+    return bkg;
   }
 
   handleSubmit = async (e) => {
     e.preventDefault()
+    console.log("FETCH MADE")
     const { city, state, units } = this.state
     if(!city || ! state) {
       alert('you need to choose a city and state')
@@ -57,7 +69,6 @@ class App extends Component {
         // return res.json({error: "There was an problem fetching your weather data"})
       }
     })
-    console.log(weatherData)
     this.setState({
       city: "",
       state: "",
@@ -73,12 +84,14 @@ class App extends Component {
   }
 
   render() {
+    const bkg = this.setBackground()
+    console.log(bkg)
     const { weatherData } = this.state
     const placeHolder = "--"
     console.log('App render', this.state)
 
     return (
-      <div className="App">
+      <div className={`'App' ${bkg} `}>
         <header className="App-header">
           <LocationForm
           handleSubmit={this.handleSubmit}

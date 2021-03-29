@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import StateList from './StateList'
 
 class LocationForm extends Component {
-    
-    componentDidMount() {
-        console.log("CDM")
-    }
 
     render() {
-        console.log('LF render')
         return (
             <form onSubmit={e => this.props.handleSubmit(e)}>
                 <fieldset>

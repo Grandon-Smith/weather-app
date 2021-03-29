@@ -9,7 +9,7 @@
     width: 1px;
 }
 
-.storm {
+.stormy {
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-mob-storm.jpg');
 }
 
@@ -37,7 +37,14 @@
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-sunny.jpg');
 }
 
-.App {
+.App,
+.default,
+.sunny,
+.snowy,
+.rainy,
+.cloudy,
+.clear-night,
+.stormy {
     background-size: cover;
     background-position: bottom;
     min-height: 100vh;
