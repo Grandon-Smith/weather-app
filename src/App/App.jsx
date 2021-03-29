@@ -8,13 +8,23 @@ class App extends Component {
     this.state = {
         city: "",
         state: "",
+        units: 'imperial',
         weatherData: null,
         error: null
     }
   }
 
+   
+  componentDidMount() {
+    console.log("App CDM")
+}
+
   handleSubmit = async (e) => {
     e.preventDefault()
+    const { city, state, units } = this.state
+    if(!city || ! state) {
+      alert('you need to choose a city and state')
+    }
     let url = 'http://localhost:8000/weather'
     const weatherData = await fetch(url, {
       method: 'POST',
@@ -24,9 +34,9 @@ class App extends Component {
           'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        "city": this.state.city,
-        "units": "imperial",
-        "state": this.state.state
+        "city": city,
+        "units": units,
+        "state": state
       })
     })
     .then(res => {
@@ -81,17 +91,17 @@ class App extends Component {
           </section>
   
           <section className="sec-2">
-            <div>
+            <div className="sec-2-1">
               <p>Humidity:</p>
-              <p>{weatherData == null ? placeHolder : weatherData.main.temp_max}%</p>
+              <p>{weatherData == null ? placeHolder : Math.round(weatherData.main.temp_max)}%</p>
             </div>
-            <div>
+            <div className="sec-2-2">
               <p>Wind:</p>
-              <p>{weatherData == null ? placeHolder : weatherData.wind.speed}%</p>
+              <p>{weatherData == null ? placeHolder : Math.round(weatherData.wind.speed)}%</p>
             </div>
-            <div>
+            <div className="sec-2-3">
               <p>Feels Like:</p>
-              <p>{weatherData == null ? placeHolder : weatherData.wind.speed}°</p>
+              <p>{weatherData == null ? placeHolder : Math.round(weatherData.wind.speed)}°</p>
             </div>
           </section>
         </main>

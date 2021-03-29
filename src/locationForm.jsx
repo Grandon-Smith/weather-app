@@ -13,35 +13,39 @@ class LocationForm extends Component {
             <form onSubmit={e => this.props.handleSubmit(e)}>
                 <fieldset>
                     <legend>Enter a Location</legend>
-                    <label
-                        htmlFor="city"
-                        className="visually-hidden">
-                            City
-                    </label>
-                    <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        placeholder="City Name"
-                        required
-                        onChange={e => this.props.updateCity(e)}
-                    />
-                    <label
-                        htmlFor="state"
-                        className="visually-hidden">
-                            State
-                    </label>
-                    <select 
-                        name="state" 
-                        id="state" 
-                        required
-                        onChange={e => this.props.updateState(e)}
-                        defaultValue="State"
-                    >
-                        <option defaultValue="State" disabled hidden>State</option>
-                        <StateList/>
-                    </select>
-                    <button type="submit">Submit</button>
+                    <div className="input-container">
+                        <label
+                            htmlFor="city"
+                            className="visually-hidden">
+                                City
+                        </label>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            className="city-search"
+                            placeholder="City Name"
+                            required
+                            onChange={e => this.props.updateCity(e)}
+                        />
+                        <label
+                            htmlFor="state"
+                            className="visually-hidden">
+                                State
+                        </label>
+                        <select 
+                            name="state" 
+                            id="state"
+                            className="state-search" 
+                            required
+                            onChange={e => this.props.updateState(e)}
+                            defaultValue="State"
+                        >
+                            <option defaultValue={null} disabled hidden>State</option>
+                            <StateList/>
+                        </select>
+                    </div>
+                    <button className="btn-search" type="submit">Search</button>
                 </fieldset>
             </form>
         );

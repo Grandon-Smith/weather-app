@@ -15,7 +15,7 @@
     background-position: bottom;
     min-height: 100vh;
     position: relative;
-    padding: 1rem;
+    padding:  0 1rem;
 }
 /* .App * {
     outline: black solid 1px;
@@ -29,10 +29,57 @@ header {
 header fieldset {
     border: none;
     outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header legend {
-    display: none;
+
+legend {
+    color: transparent;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+}
+
+.city-search {
+    max-width: 18ch;
+    font-size: 1.1rem;
+    padding: 5px;
+    margin-top: 0px;
+    border-radius: 10px;
+    height: 2.2rem;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.644)
+}
+
+.state-search {
+    /* appearance: none; */
+    background-color: rgba(255, 255, 255, 0.575);
+    outline: none;
+    padding: 0 .1em 0 0;
+    margin: 0;
+    width: 4rem;
+    height: 2.2rem;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.644);
+
+}
+
+.btn-search {
+    margin: .5em auto;
+    font-size: 1.1rem;
+    padding: .25rem 1.1rem;
 }
 
 main {
@@ -40,8 +87,9 @@ main {
     min-width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
-    margin: 2rem 0;
+    margin: 1rem 0;
     padding: .5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.445);
 }
 
 .location {
@@ -67,6 +115,12 @@ main {
     align-items: center;
 }
 
+.curr-temp > h2 {
+    margin: .25em 0;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
 .sec-2 {
     margin: 1rem auto;
     display: flex;
@@ -75,9 +129,20 @@ main {
 
 .sec-2 > div {
     display: flex;
+    flex-basis: 100%;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    min-height: 3.5rem;
 }
+
+.sec-2-2 {
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+
+
 
 footer {
     position: absolute;
