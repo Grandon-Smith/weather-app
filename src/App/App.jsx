@@ -67,28 +67,32 @@ class App extends Component {
         <main>
           <section className="sec-1">
             <div className="location">
-              <p>{weatherData == null ? "City" : weatherData.name}</p>
+              <h2>{weatherData == null ? "City" : weatherData.name}</h2>
             </div>
             <div className="sub-temps">
-              <p>high: {weatherData == null ? placeHolder : weatherData.main.temp_max}°</p>
-              <p>low: {weatherData == null ? placeHolder : weatherData.main.humidity}°</p>
+              <p>High: {weatherData == null ? placeHolder : Math.round(weatherData.main.temp_max)}°</p>
+              <p>Low: {weatherData == null ? placeHolder : Math.round(weatherData.main.temp_min)}°</p>
             </div>
             <div className="curr-temp">
               <p>Current Temp</p>
-              <p>{weatherData == null ? placeHolder : weatherData.main.temp}°</p>
+              <h2>{weatherData == null ? placeHolder : Math.round(weatherData.main.temp)}°</h2>
+              <p>{weatherData == null ? '' : weatherData.weather[0].description}</p>
             </div>
           </section>
   
           <section className="sec-2">
-          <div>
-              <p>Current Temp</p>
-              <p>70 deg</p>
+            <div>
+              <p>Humidity:</p>
+              <p>{weatherData == null ? placeHolder : weatherData.main.temp_max}%</p>
             </div>
-          <div>
-              <p>humidity: {weatherData == null ? placeHolder : weatherData.main.temp_max}%</p>
-              <p>wind: {weatherData == null ? placeHolder : weatherData.wind.speed}%</p>
-          </div>
-            
+            <div>
+              <p>Wind:</p>
+              <p>{weatherData == null ? placeHolder : weatherData.wind.speed}%</p>
+            </div>
+            <div>
+              <p>Feels Like:</p>
+              <p>{weatherData == null ? placeHolder : weatherData.wind.speed}°</p>
+            </div>
           </section>
         </main>
         <footer>
