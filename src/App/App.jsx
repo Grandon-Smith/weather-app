@@ -52,6 +52,8 @@ class App extends Component {
   }
 
   render() {
+    const { weatherData } = this.state
+    const placeHolder = "--"
     console.log('App render', this.state)
 
     return (
@@ -65,27 +67,28 @@ class App extends Component {
         <main>
           <section className="sec-1">
             <div className="location">
-              <p>Newtown</p>
+              <p>{weatherData == null ? "City" : weatherData.name}</p>
             </div>
             <div className="sub-temps">
-              <p>high: 65°</p>
-              <p>low: 75°</p>
+              <p>high: {weatherData == null ? placeHolder : weatherData.main.temp_max}°</p>
+              <p>low: {weatherData == null ? placeHolder : weatherData.main.humidity}°</p>
             </div>
             <div className="curr-temp">
               <p>Current Temp</p>
-              <p>70°</p>
+              <p>{weatherData == null ? placeHolder : weatherData.main.temp}°</p>
             </div>
           </section>
   
           <section className="sec-2">
           <div>
-              <p>humidity: 65%</p>
-              <p>wind: 5mph SSW</p>
-            </div>
-            <div>
               <p>Current Temp</p>
               <p>70 deg</p>
             </div>
+          <div>
+              <p>humidity: {weatherData == null ? placeHolder : weatherData.main.temp_max}%</p>
+              <p>wind: {weatherData == null ? placeHolder : weatherData.wind.speed}%</p>
+          </div>
+            
           </section>
         </main>
         <footer>
