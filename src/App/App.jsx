@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import LocationForm from '../LocationForm.jsx'
-import { render } from '@testing-library/react';
 
 class App extends Component {
   constructor(props) {
@@ -9,16 +8,59 @@ class App extends Component {
     this.state = {
         city: "",
         state: "",
+        weatherData: null,
+        error: null
     }
   }
 
-  
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    let url = 'http://localhost:8000/weather'
+    const weatherData = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      // credentials: '*',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "city": this.state.city,
+        "units": "imperial",
+        "state": this.state.state
+      })
+    })
+    .then(res => {
+      if(res.ok){
+        return res.json()
+      } else {
+        // return res.json({error: "There was an problem fetching your weather data"})
+      }
+    })
+    console.log(weatherData)
+    this.setState({
+      city: "",
+      state: "",
+      weatherData: weatherData})
+  }
 
-  render() { 
+  updateCity = (e) => {
+    this.setState({city: e.target.value})
+  }
+
+  updateState = (e) => {
+    this.setState({state: e.target.value})
+  }
+
+  render() {
+    console.log('App render', this.state)
+
     return (
       <div className="App">
         <header className="App-header">
-          <LocationForm/>
+          <LocationForm
+          handleSubmit={this.handleSubmit}
+          updateCity={this.updateCity}
+          updateState={this.updateState}/>
         </header>
         <main>
           <section className="sec-1">
@@ -26,12 +68,12 @@ class App extends Component {
               <p>Newtown</p>
             </div>
             <div className="sub-temps">
-              <p>high: 65</p>
-              <p>low: 75</p>
+              <p>high: 65°</p>
+              <p>low: 75°</p>
             </div>
             <div className="curr-temp">
               <p>Current Temp</p>
-              <p>70 deg</p>
+              <p>70°</p>
             </div>
           </section>
   

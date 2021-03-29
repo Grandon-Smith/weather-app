@@ -3,20 +3,14 @@ import StateList from './StateList'
 
 class LocationForm extends Component {
     
-
     componentDidMount() {
-        console.log("CDM", this.state)
+        console.log("CDM")
     }
-
-    handleSubmit = async () => {
-
-    }
-
 
     render() {
-        console.log('render', this.state)
+        console.log('LF render')
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={e => this.props.handleSubmit(e)}>
                 <fieldset>
                     <legend>Enter a Location</legend>
                     <label
@@ -30,7 +24,7 @@ class LocationForm extends Component {
                         name="city"
                         placeholder="City Name"
                         required
-                        onChange={e => this.setState({ city: e.target.value })}
+                        onChange={e => this.props.updateCity(e)}
                     />
                     <label
                         htmlFor="state"
@@ -41,7 +35,10 @@ class LocationForm extends Component {
                         name="state" 
                         id="state" 
                         required
-                        onChange={e => this.setState({ state: e.target.value })}>
+                        onChange={e => this.props.updateState(e)}
+                        defaultValue="State"
+                    >
+                        <option defaultValue="State" disabled hidden>State</option>
                         <StateList/>
                     </select>
                     <button type="submit">Submit</button>

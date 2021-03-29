@@ -5,7 +5,12 @@ class StateList extends Component {
     render() { 
         return STATES.map((s, idx) => {
             return (
-                <option key={idx} value={s.abbreviation.toLowerCase()}>{s.name}</option>
+                <option
+                    key={idx}
+                    defaultValue={s.abbreviation.toLowerCase()}
+                >
+                        {s.abbreviation}
+                </option>
             )
         })
     }
