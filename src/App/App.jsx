@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import LocationForm from '../LocationForm.jsx'
+import {
+  // Switch,
+  // Route,
+  // Link,
+  withRouter
+} from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -10,44 +16,38 @@ class App extends Component {
         state: "",
         units: 'imperial',
         weatherData: null,
-        error: null
+        background: 'default',
+        error: null,
     }
   }
 
-   
-  componentDidMount() {
-    console.log("App CDM")
-  }
-
-  setBackground = () => {
-    console.log("SET BKG")
-    let bkg = '';
-    if(this.state.weatherData == null) {
-      bkg = 'default';
-    } else {
-      const { id } = this.state.weatherData.weather[0].id
-      if(id >= 200) {
+  setBackground(data) {
+    // let bkg = 'default';
+      let bkg;
+      const { id } = data.weather[0]
+      // console.log(id, data.weather[0].id)
+      if(id < 300) {
         bkg = 'stormy';
-      } else if(id >= 300) {
+      } else if(id < 600) {
         bkg = 'rainy';
-      } else if(id >= 600 && id < 800) {
+      } else if(id > 600 && id < 800) {
         bkg = 'snowy';
       } else if(id === 800) {
         bkg = 'sunny';
       } else if(id > 800) {
         bkg = 'cloudy';
       }
-    }
-    return bkg;
+    return bkg
   }
 
   handleSubmit = async (e) => {
     e.preventDefault()
-    console.log("FETCH MADE")
     const { city, state, units } = this.state
     if(!city || ! state) {
       alert('you need to choose a city and state')
+      return
     }
+    // this.props.history.push(`/weather?city=${city}&state=${state}`)
     let url = 'http://localhost:8000/weather'
     const weatherData = await fetch(url, {
       method: 'POST',
@@ -66,13 +66,28 @@ class App extends Component {
       if(res.ok){
         return res.json()
       } else {
-        // return res.json({error: "There was an problem fetching your weather data"})
+        return res.json({error: "There was an problem fetching your weather data"})
       }
     })
+    .then(data => {
+      console.log(data)
+      return data
+    })
+    .then(data => {
+      if(data.error) {
+        this.setState({error: data.error})
+      }
+    })
+    
+    let bkg = this.setBackground(weatherData)
     this.setState({
-      city: "",
-      state: "",
-      weatherData: weatherData})
+      // city: "",
+      // state: "",
+      weatherData: weatherData,
+      background: bkg,
+    })
+
+    
   }
 
   updateCity = (e) => {
@@ -84,19 +99,18 @@ class App extends Component {
   }
 
   render() {
-    const bkg = this.setBackground()
-    console.log(bkg)
-    const { weatherData } = this.state
+    const { weatherData, background } = this.state
     const placeHolder = "--"
-    console.log('App render', this.state)
+    // console.log('App render')
 
     return (
-      <div className={`'App' ${bkg} `}>
+      <div className={`'App' ${background} `}>
         <header className="App-header">
           <LocationForm
-          handleSubmit={this.handleSubmit}
-          updateCity={this.updateCity}
-          updateState={this.updateState}/>
+            handleSubmit={this.handleSubmit}
+            updateCity={this.updateCity}
+            updateState={this.updateState}
+          />
         </header>
         <main>
           <section className="sec-1">
@@ -132,10 +146,9 @@ class App extends Component {
         <footer>
           Powered By <a href="https://openweathermap.org/api">Open Weather Map</a>
         </footer>
-        
       </div>
     );
   };
 };
  
-export default App;
+export default withRouter(App);
