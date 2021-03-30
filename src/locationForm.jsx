@@ -21,6 +21,7 @@ class LocationForm extends Component {
                             className="city-search"
                             placeholder="City Name"
                             required
+                            autoFocus={true}
                             onChange={e => this.props.updateCity(e)}
                         />
                         <label

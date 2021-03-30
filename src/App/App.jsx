@@ -70,41 +70,35 @@ class App extends Component {
       }
     })
     .then(data => {
-      console.log(data)
       return data
     })
-    .then(data => {
-      if(data.error) {
-        this.setState({error: data.error})
-      }
-    })
-    
-    let bkg = this.setBackground(weatherData)
-    this.setState({
-      // city: "",
-      // state: "",
-      weatherData: weatherData,
-      background: bkg,
-    })
 
-    
+    if(weatherData.error) {
+      this.setState({error: weatherData.error})
+    } else {
+      let bkg = this.setBackground(weatherData)
+      this.setState({
+        weatherData: weatherData,
+        background: bkg,
+      })
+    }
   }
 
   updateCity = (e) => {
-    this.setState({city: e.target.value})
+    this.setState({city: e.target.value, error: null})
   }
 
   updateState = (e) => {
-    this.setState({state: e.target.value})
+    this.setState({state: e.target.value, error: null})
   }
 
   render() {
-    const { weatherData, background } = this.state
+    const { weatherData, background, error } = this.state
     const placeHolder = "--"
     // console.log('App render')
 
     return (
-      <div className={`'App' ${background} `}>
+      <div className={`App ${background} `}>
         <header className="App-header">
           <LocationForm
             handleSubmit={this.handleSubmit}
@@ -114,6 +108,7 @@ class App extends Component {
         </header>
         <main>
           <section className="sec-1">
+            <div className="error">{error ? error : ""}</div>
             <div className="location">
               <h2>{weatherData == null ? "City" : weatherData.name}</h2>
             </div>

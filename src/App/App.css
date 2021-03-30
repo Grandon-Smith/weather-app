@@ -50,11 +50,8 @@
     min-height: 100vh;
     position: relative;
     padding:  0 1rem;
+    animation: fadeIn ease 20s;
 }
-/* .App * {
-    outline: black solid 1px;
-    padding: 3px;
-} */
 
 header {
     min-width: 100%;
@@ -107,7 +104,6 @@ legend {
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.644);
-
 }
 
 .btn-search {
@@ -124,6 +120,11 @@ main {
     margin: 1rem 0;
     padding: .5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.445);
+}
+
+.error {
+    text-align: center;
+    min-width: 100%;
 }
 
 .location {
