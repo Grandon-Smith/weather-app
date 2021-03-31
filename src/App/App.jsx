@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import LocationForm from '../LocationForm.jsx'
 import { withRouter } from 'react-router-dom';
-import { generateHourlyWeather } from '../utils'
+import { generateHourlyWeather, generateWeeklyWeather } from '../utils'
 
 class App extends Component {
   constructor(props) {
@@ -37,8 +37,11 @@ class App extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const { city, state, units } = this.state
-    if(!city || ! state) {
-      alert('you need to choose a city and state')
+    if(!city) {
+      this.setState({error: `Please select a city.`})
+      return
+    } else if(!state) {
+      this.setState({error: `Please select a state.`})
       return
     }
     let url = 'http://localhost:8000/weather'
@@ -138,6 +141,10 @@ class App extends Component {
 
           <section className="sec-3">
             {weatherData == null ? '' : generateHourlyWeather(moreWeatherData)}
+          </section>
+
+          <section className="sec-4">
+            {weatherData == null ? '' : generateWeeklyWeather(moreWeatherData)}
           </section>
           
         </main>

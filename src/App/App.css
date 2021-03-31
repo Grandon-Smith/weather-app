@@ -128,8 +128,14 @@ main {
 
 .error {
     text-align: center;
-    min-width: 100%;
+    width: 80%;
+    margin: auto auto;
+    line-height: 2em;
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 10px;
 }
+
 
 .location {
     display: flex;

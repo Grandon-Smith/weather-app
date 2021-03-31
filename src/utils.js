@@ -2,7 +2,6 @@ import moment from 'moment';
 
 export function generateHourlyWeather(moreWeatherData) {
     let time = new Date().getHours()
-    console.log(time)
     moreWeatherData = moreWeatherData.hourly.slice(0, 10)
     return moreWeatherData.map((h, idx) =>
         <div className={`sec-3-${idx}`} key={idx}>
@@ -11,4 +10,8 @@ export function generateHourlyWeather(moreWeatherData) {
             <p>{ h.weather[0].main }</p>
         </div>
     )
+}
+
+export function generateWeeklyWeather() {
+    
 }
