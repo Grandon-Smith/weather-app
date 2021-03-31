@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import LocationForm from '../LocationForm.jsx'
 import { withRouter } from 'react-router-dom';
+import { generateHourlyWeather } from '../utils'
 
 class App extends Component {
   constructor(props) {
@@ -84,15 +85,21 @@ class App extends Component {
     this.setState({state: e.target.value, error: null})
   }
 
+
+
+
   render() {
-    console.log('App render', this.state)
+    Date.prototype.addHours = function(h){
+      this.setHours(this.getHours()+h);
+      return this;
+    }
+    console.log(new Date())
     const { weatherData, background, error } = this.state;
     let firstWeatherData;
     let moreWeatherData;
     if(weatherData !== null) {
       firstWeatherData = this.state.weatherData.firstWeatherData;
       moreWeatherData = this.state.weatherData.moreWeatherData;
-      console.log(moreWeatherData)
     }
 
     const placeHolder = "--"
@@ -138,32 +145,13 @@ class App extends Component {
             </div>
           </section>
 
-          <section className="sec-2">
-            <div className="sec-3-1">
-              <p>Humidity:</p>
-              <p>{weatherData == null ? placeHolder : Math.round(firstWeatherData.main.humidity)}%</p>
-            </div>
-            <div className="sec-3-2">
-              <p>Wind:</p>
-              <p>{weatherData == null ? placeHolder : Math.round(firstWeatherData.wind.speed)}mph</p>
-            </div>
-            <div className="sec-3-3">
-              <p>Feels Like:</p>
-              <p>{weatherData == null ? placeHolder : Math.round(firstWeatherData.main.feels_like)}°</p>
-            </div>
-            <div className="sec-3-3">
-              <p>Feels Like:</p>
-              <p>{weatherData == null ? placeHolder : Math.round(firstWeatherData.main.feels_like)}°</p>
-            </div>
-            <div className="sec-3-3">
-              <p>Feels Like:</p>
-              <p>{weatherData == null ? placeHolder : Math.round(firstWeatherData.main.feels_like)}°</p>
-            </div>
+          <section className="sec-3">
+            {weatherData == null ? '' : generateHourlyWeather(moreWeatherData)}
           </section>
           
         </main>
         <footer>
-          Powered By <a href="https://openweathermap.org/api">Open Weather Map</a>
+          Powered By <a href="https://openweathermap.org/api" target="_blank" rel="noreferrer">Open Weather Map</a>
         </footer>
       </div>
     );

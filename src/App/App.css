@@ -166,18 +166,26 @@ main {
     justify-content: space-evenly;
 }
 
-.sec-2 > div {
+.sec-2 > div,
+.sec-3 > div {
     display: flex;
     flex-basis: 100%;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     min-height: 3.5rem;
+    min-width: 4rem;
 }
 
 .sec-2-2 {
     border-left: 1px solid rgba(0, 0, 0, 0.5);
     border-right: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.sec-3 {
+    margin: 0 auto 1rem auto;
+    display: flex;
+    overflow: scroll;
 }
 
 footer {
