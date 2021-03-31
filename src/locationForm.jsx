@@ -33,7 +33,6 @@ class LocationForm extends Component {
                             name="state" 
                             id="state"
                             className="state-search" 
-                            required
                             onChange={e => this.props.updateState(e)}
                             defaultValue="State"
                         >

@@ -85,24 +85,15 @@ class App extends Component {
     this.setState({state: e.target.value, error: null})
   }
 
-
-
-
   render() {
-    Date.prototype.addHours = function(h){
-      this.setHours(this.getHours()+h);
-      return this;
-    }
-    console.log(new Date())
     const { weatherData, background, error } = this.state;
+    const placeHolder = "--"
     let firstWeatherData;
     let moreWeatherData;
     if(weatherData !== null) {
       firstWeatherData = this.state.weatherData.firstWeatherData;
       moreWeatherData = this.state.weatherData.moreWeatherData;
     }
-
-    const placeHolder = "--"
 
     return (
       <div className={`App ${background} `}>
