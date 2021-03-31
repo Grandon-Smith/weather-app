@@ -47,11 +47,14 @@
 .stormy {
     background-size: cover;
     background-position: bottom;
-    min-height: 100vh;
-    position: relative;
+    background-attachment: fixed;
+    height: 100vh;
     padding:  0 1rem;
-    animation: fadeIn ease 20s;
+    position: relative;
+    overflow: scroll;
 }
+
+
 
 header {
     min-width: 100%;
@@ -120,6 +123,7 @@ main {
     margin: 1rem 0;
     padding: .5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.445);
+    max-height: 100vh;
 }
 
 .error {
@@ -157,7 +161,7 @@ main {
 }
 
 .sec-2 {
-    margin: 1rem auto;
+    margin: 0 auto 1rem auto;
     display: flex;
     justify-content: space-evenly;
 }
@@ -174,13 +178,18 @@ main {
 .sec-2-2 {
     border-left: 1px solid rgba(0, 0, 0, 0.5);
     border-right: 1px solid rgba(0, 0, 0, 0.5);
-
 }
 
-
-
 footer {
-    position: absolute;
-    bottom: .5rem;
-    right: .5rem;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: right;
+    color: white;
+}
+
+footer a {
+    color: rgb(139, 139, 139);
 }
