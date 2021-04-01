@@ -3,7 +3,7 @@ import './App.css';
 import LocationForm from '../LocationForm.jsx'
 import { withRouter } from 'react-router-dom';
 import { generateHourlyWeather, generateWeeklyWeather } from '../utils';
-import moment from 'moment';
+// import moment from 'moment';
 
 
 class App extends Component {
