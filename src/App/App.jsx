@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import LocationForm from '../LocationForm.jsx'
 import { withRouter } from 'react-router-dom';
-import { generateHourlyWeather, generateWeeklyWeather } from '../utils';
-// import moment from 'moment';
+import { 
+  generateHourlyWeather,
+  generateWeeklyWeather, 
+  setBackground 
+} from '../utils';
+
+import moment from 'moment';
 
 
 class App extends Component {
@@ -17,23 +22,6 @@ class App extends Component {
         background: 'default',
         error: null,
     }
-  }
-
-  setBackground(data) {
-      let bkg;
-      const { id } = data.weather[0]
-      if(id < 300) {
-        bkg = 'stormy';
-      } else if(id < 600) {
-        bkg = 'rainy';
-      } else if(id > 600 && id < 800) {
-        bkg = 'snowy';
-      } else if(id === 800) {
-        bkg = 'sunny';
-      } else if(id > 800) {
-        bkg = 'cloudy';
-      }
-    return bkg
   }
 
   handleSubmit = async (e) => {
@@ -74,7 +62,7 @@ class App extends Component {
     if(allWeatherData.error) {
       this.setState({error: allWeatherData.error})
     } else {
-      let bkg = this.setBackground(allWeatherData.firstWeatherData)
+      let bkg = setBackground(allWeatherData.firstWeatherData)
       this.setState({
         weatherData: allWeatherData,
         background: bkg,
@@ -101,7 +89,8 @@ class App extends Component {
     }
     
     return (
-      <div className={`App ${background} `}>
+      <div className={`App `}>
+        <div className={`${background}`}>
         <header className="App-header">
           <LocationForm
             handleSubmit={this.handleSubmit}
@@ -153,6 +142,7 @@ class App extends Component {
         <footer>
           Powered By <a href="https://openweathermap.org/api" target="_blank" rel="noreferrer">Open Weather Map</a>
         </footer>
+        </div>
       </div>
     );
   };

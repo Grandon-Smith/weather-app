@@ -33,3 +33,20 @@ export function generateWeeklyWeather(moreWeatherData) {
         )
     })
 }
+
+export function setBackground(data) {
+    let bkg;
+    const { id } = data.weather[0]
+    if(id < 300) {
+      bkg = 'stormy';
+    } else if(id < 600) {
+      bkg = 'rainy';
+    } else if(id > 600 && id < 800) {
+      bkg = 'snowy';
+    } else if(id === 800) {
+      bkg = 'sunny';
+    } else if(id > 800) {
+      bkg = 'cloudy';
+    }
+  return bkg
+}
