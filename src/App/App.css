@@ -172,6 +172,11 @@ main {
     justify-content: space-evenly;
 }
 
+.sec-2-2 {
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+}
+
 .sec-2 > div,
 .sec-3 > div {
     display: flex;
@@ -180,18 +185,29 @@ main {
     justify-content: space-around;
     align-items: center;
     min-height: 3.5rem;
-    min-width: 4rem;
+    min-width: 4.5rem;
 }
 
-.sec-2-2 {
-    border-left: 1px solid rgba(0, 0, 0, 0.5);
-    border-right: 1px solid rgba(0, 0, 0, 0.5);
-}
 
 .sec-3 {
     margin: 0 auto 1rem auto;
     display: flex;
     overflow: scroll;
+}
+
+.sec-4 {
+    display: flex;
+    flex-direction: column;
+    max-height: 7rem;
+    overflow: scroll;
+}
+
+.sec-4 > div {
+    display: flex;
+    min-width: 100%;
+    justify-content: space-between;
+    padding: 3px 0 3px 5px;
+
 }
 
 footer {

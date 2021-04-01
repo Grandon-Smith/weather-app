@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import LocationForm from '../LocationForm.jsx'
 import { withRouter } from 'react-router-dom';
-import { generateHourlyWeather, generateWeeklyWeather } from '../utils'
+import { generateHourlyWeather, generateWeeklyWeather } from '../utils';
+import moment from 'moment';
+
 
 class App extends Component {
   constructor(props) {
@@ -97,6 +99,12 @@ class App extends Component {
       firstWeatherData = this.state.weatherData.firstWeatherData;
       moreWeatherData = this.state.weatherData.moreWeatherData;
     }
+    let day = new Date();
+    day = moment(day).add(1, 'd').toDate();
+    console.log(day);
+    // let time = new Date()
+    
+    // console.log(time)
 
     return (
       <div className={`App ${background} `}>

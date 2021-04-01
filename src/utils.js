@@ -12,6 +12,20 @@ export function generateHourlyWeather(moreWeatherData) {
     )
 }
 
-export function generateWeeklyWeather() {
+export function generateWeeklyWeather(moreWeatherData) {
+    // let dayArr = ['Sun','Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
+    let time = new Date().now()
     
+    console.log(time)
+    console.log(moreWeatherData)
+    moreWeatherData = moreWeatherData.daily
+    return moreWeatherData.map((d, idx) => {
+        return (
+            <div className={`sec-4-${idx}`} key={idx}>
+                <p>{ `sjfdlk` }</p>
+                <p>{ `num` }°</p>
+                <p>{ `icon?` }</p>
+            </div>
+        )
+    })
 }
