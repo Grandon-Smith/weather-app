@@ -9,6 +9,11 @@
     width: 1px;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
 .stormy {
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0), rgba(0, 0, 0, 0.295)), url('../photos/bkg-mob-storm.jpg');
 }
@@ -167,7 +172,7 @@ main {
 }
 
 .sec-2 {
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 2rem auto;
     display: flex;
     justify-content: space-evenly;
 }
@@ -185,29 +190,42 @@ main {
     justify-content: space-around;
     align-items: center;
     min-height: 3.5rem;
-    min-width: 4.5rem;
+    min-width: 5rem;
+    /* border: red solid 1px; */
 }
 
 
 .sec-3 {
     margin: 0 auto 1rem auto;
     display: flex;
-    overflow: scroll;
+    overflow: auto;
+}
+
+.icon-wrapper-hourly {
+    max-width: 2rem;
 }
 
 .sec-4 {
     display: flex;
     flex-direction: column;
-    max-height: 7rem;
-    overflow: scroll;
+    max-height: 8rem;
+    overflow: auto;
 }
 
 .sec-4 > div {
     display: flex;
     min-width: 100%;
     justify-content: space-between;
+    align-items: center;
     padding: 3px 0 3px 5px;
+}
 
+.sec-4 > div > * {
+    flex-basis: 100%;
+}
+
+.icon-wrapper-daily {
+    max-width: 3rem;
 }
 
 footer {

@@ -99,13 +99,7 @@ class App extends Component {
       firstWeatherData = this.state.weatherData.firstWeatherData;
       moreWeatherData = this.state.weatherData.moreWeatherData;
     }
-    let day = new Date();
-    day = moment(day).add(1, 'd').toDate();
-    console.log(day);
-    // let time = new Date()
     
-    // console.log(time)
-
     return (
       <div className={`App ${background} `}>
         <header className="App-header">

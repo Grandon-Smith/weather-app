@@ -7,24 +7,28 @@ export function generateHourlyWeather(moreWeatherData) {
         <div className={`sec-3-${idx}`} key={idx}>
             <p>{ moment((time+idx+1), 'HH:mm:ss').format('h A') }</p>
             <p>{ Math.round(h.temp) }°</p>
+            <div className="icon-wrapper-hourly">
+                    { <img src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`}
+                    alt={`icon for ${h.weather[0].description}`}/> }
+            </div>
             <p>{ h.weather[0].main }</p>
         </div>
     )
 }
 
 export function generateWeeklyWeather(moreWeatherData) {
-    // let dayArr = ['Sun','Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
-    let time = new Date().now()
-    
-    console.log(time)
+    let day = new Date();
     console.log(moreWeatherData)
     moreWeatherData = moreWeatherData.daily
     return moreWeatherData.map((d, idx) => {
         return (
             <div className={`sec-4-${idx}`} key={idx}>
-                <p>{ `sjfdlk` }</p>
-                <p>{ `num` }°</p>
-                <p>{ `icon?` }</p>
+                <p>{ moment(day).add([idx+1], 'd').format('ddd') }</p>
+                <p>{ d.temp.day }°</p>
+                <div className="icon-wrapper-daily">
+                    { <img src={`http://openweathermap.org/img/wn/${d.weather[0].icon}@2x.png`}
+                    alt={`icon for ${d.weather[0].description}`}/> }
+                </div>
             </div>
         )
     })
