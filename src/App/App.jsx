@@ -31,13 +31,13 @@ class App extends Component {
       this.setState({error: `Please select a state.`})
       return
     }
-    let url = 'https://weather-app--api.herokuapp.com//weather'
+    let url = 'https://weather-app--api.herokuapp.com/weather'
     const allWeatherData = await fetch(url, {
       method: 'POST',
       mode: 'cors',
-      credentials: '*',
       headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
       },
       body: JSON.stringify({
         "city": city,
@@ -55,7 +55,9 @@ class App extends Component {
     .then(data => {
       return data
     })
-
+    .catch(err =>{
+      console.log(err)
+    })
     if(allWeatherData.error) {
       this.setState({error: allWeatherData.error})
     } else {

@@ -5,7 +5,7 @@ export function generateHourlyWeather(moreWeatherData) {
     moreWeatherData = moreWeatherData.hourly.slice(0, 10)
     return moreWeatherData.map((h, idx) =>
         <div className={`sec-3-${idx}`} key={idx}>
-            <p>{ moment((time+idx+1), 'HH:mm:ss').format('h A') }</p>
+            <p>{ moment(time).add([idx+1], 'h').format('h A') }</p>
             <p>{ Math.round(h.temp) }°</p>
             <div className="icon-wrapper-hourly">
                     { <img src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`}
@@ -18,7 +18,6 @@ export function generateHourlyWeather(moreWeatherData) {
 
 export function generateWeeklyWeather(moreWeatherData) {
     let day = new Date();
-    console.log(moreWeatherData)
     moreWeatherData = moreWeatherData.daily
     return moreWeatherData.map((d, idx) => {
         return (
