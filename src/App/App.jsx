@@ -8,9 +8,6 @@ import {
   setBackground 
 } from '../utils';
 
-import moment from 'moment';
-
-
 class App extends Component {
   constructor(props) {
     super(props)
