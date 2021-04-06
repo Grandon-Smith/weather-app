@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import LocationForm from '../LocationForm.jsx'
 import { withRouter } from 'react-router-dom';
-import gear from '../photos/icon-settings-gear.png'
+import gear from '../photos/icon-settings-gear.png';
+import SettingsModal from '../SettingsModal';
 import { 
   generateHourlyWeather,
   generateWeeklyWeather, 
@@ -73,7 +74,6 @@ class App extends Component {
 
   toggleSettings = () => {
     console.log('modal toggled!')
-    // this.setState((prevState) => prevState.showModal === false ? ({showModal: true}) : ({showModal: false}))
     this.setState((prevState) =>({showModal: !prevState.showModal}))
   }
 
@@ -110,6 +110,7 @@ class App extends Component {
             <button className="gear-img-wrapper" onClick={this.toggleSettings}>
               <img src={gear}/>
             </button>
+            <SettingsModal />
             <div className="error">{error ? error : ""}</div>
             <div className="location">
               <h2>{weatherData == null ? "City" : firstWeatherData.name}</h2>
