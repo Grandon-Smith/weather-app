@@ -16,6 +16,7 @@ class App extends Component {
         city: "",
         state: "",
         units: 'imperial',
+        showModal: false,
         weatherData: null,
         background: 'default',
         error: null,
@@ -70,6 +71,12 @@ class App extends Component {
     }
   }
 
+  toggleSettings = () => {
+    console.log('modal toggled!')
+    // this.setState((prevState) => prevState.showModal === false ? ({showModal: true}) : ({showModal: false}))
+    this.setState((prevState) =>({showModal: !prevState.showModal}))
+  }
+
   updateCity = (e) => {
     this.setState({city: e.target.value, error: null})
   }
@@ -100,7 +107,7 @@ class App extends Component {
         </header>
         <main>
           <section className="sec-1">
-            <button className="gear-img-wrapper">
+            <button className="gear-img-wrapper" onClick={this.toggleSettings}>
               <img src={gear}/>
             </button>
             <div className="error">{error ? error : ""}</div>

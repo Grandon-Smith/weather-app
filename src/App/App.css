@@ -128,6 +128,7 @@ legend {
     color: black;
     border-radius: 10px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.644);
+    cursor: pointer;
 }
 
 .btn-search:focus,
@@ -151,21 +152,22 @@ main {
 }
 
 .gear-img-wrapper {
+    background-color: transparent;
+    border: transparent;
     width: 10%;
     max-width: 3rem;
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: transparent;
-    border: none;
     cursor: pointer;
-
+    transition: all .3s ease-in-out;
 }
 
 .gear-img-wrapper:hover,
 .gear-img-wrapper:focus {
-    border: none;
+    border: transparent;
     outline: none;
+    transform: rotate(45deg);
 }
 
 .error {
