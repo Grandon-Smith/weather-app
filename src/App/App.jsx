@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import LocationForm from '../LocationForm.jsx'
 import { withRouter } from 'react-router-dom';
+import gear from '../photos/icon-settings-gear.png'
 import { 
   generateHourlyWeather,
   generateWeeklyWeather, 
@@ -99,6 +100,9 @@ class App extends Component {
         </header>
         <main>
           <section className="sec-1">
+            <button className="gear-img-wrapper">
+              <img src={gear}/>
+            </button>
             <div className="error">{error ? error : ""}</div>
             <div className="location">
               <h2>{weatherData == null ? "City" : firstWeatherData.name}</h2>
