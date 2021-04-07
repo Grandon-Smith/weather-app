@@ -86,7 +86,7 @@ class App extends Component {
   }
 
   render() {
-    const { weatherData, background, error } = this.state;
+    const { weatherData, background, error, showModal } = this.state;
     const placeHolder = "--"
     let firstWeatherData;
     let moreWeatherData;
@@ -108,9 +108,9 @@ class App extends Component {
         <main>
           <section className="sec-1">
             <button className="gear-img-wrapper" onClick={this.toggleSettings}>
-              <img src={gear}/>
+              <img src={gear} alt="settings gear icon"/>
             </button>
-            <SettingsModal />
+            {showModal ? <SettingsModal /> : ""}
             <div className="error">{error ? error : ""}</div>
             <div className="location">
               <h2>{weatherData == null ? "City" : firstWeatherData.name}</h2>
