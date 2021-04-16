@@ -110,6 +110,7 @@ class App extends Component {
             <button className="gear-img-wrapper" onClick={this.toggleSettings}>
               <img src={gear} alt="settings gear icon"/>
             </button>
+            {showModal ? <SettingsModal /> : ""}
             <div className="error">{error ? error : ""}</div>
             <div className="location">
               <h2>{weatherData == null ? "City" : firstWeatherData.name}</h2>
