@@ -7,7 +7,7 @@ class SettingsModal
         return ( 
             <div className="settings-modal">
                 <div className="units-selection">
-
+                    <label></label>
                 </div>
             </div>
         );
