@@ -72,6 +72,11 @@ class App extends Component {
     }
   }
 
+  settingsChange = (e) => {
+    console.log(e)
+    
+  }
+
   toggleSettings = () => {
     console.log('modal toggled!')
     this.setState((prevState) =>({showModal: !prevState.showModal}))
@@ -110,7 +115,7 @@ class App extends Component {
             <button className="gear-img-wrapper" onClick={this.toggleSettings}>
               <img src={gear} alt="settings gear icon"/>
             </button>
-            {showModal ? <SettingsModal /> : ""}
+            {showModal ? <SettingsModal settingsChange={this.settingsChange}/> : ""}
             <div className="error">{error ? error : ""}</div>
             <div className="location">
               <h2>{weatherData == null ? "City" : firstWeatherData.name}</h2>
