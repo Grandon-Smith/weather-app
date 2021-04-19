@@ -14,14 +14,14 @@ class SettingsModal extends Component {
                             name="unit" 
                             value="imperial" 
                             defaultChecked
-                            onChange={e => this.props.settingsChange(e.target.value)}
+                            onChange={e => this.props.settingsChangeUnits(e.target.value)}
                         />
                         <label>Metric: </label>
                         <input 
                             type="radio" 
                             name="unit" 
                             value="metric"
-                            onChange={e => this.props.settingsChange(e.target.value)}
+                            onChange={e => this.props.settingsChangeUnits(e.target.value)}
                         />
                     </div>
                     <div className="theme-select">
@@ -32,14 +32,14 @@ class SettingsModal extends Component {
                             name="theme"
                             value="light"
                             defaultChecked
-                            onChange={e => this.props.settingsChange(e.target.value)}
+                            onChange={e => this.props.settingsChangeTheme(e.target.value)}
                         />
                         <label>Dark Theme: </label>
                         <input 
                             type="radio" 
                             name="theme"
                             value="dark"
-                            onChange={e => this.props.settingsChange(e.target.value)}
+                            onChange={e => this.props.settingsChangeTheme(e.target.value)}
                         />
                     </div>
                 </form>

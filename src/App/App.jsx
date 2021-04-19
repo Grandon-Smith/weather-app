@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
         city: "",
         state: "",
-        units: 'imperial',
+        units: sessionStorage.units || 'imperial',
         showModal: false,
         weatherData: null,
         background: 'default',
@@ -72,13 +72,18 @@ class App extends Component {
     }
   }
 
-  settingsChange = (e) => {
+  settingsChangeUnits = (e) => {
     console.log(e)
-    
+    localStorage.setItem('units', e);
+  }
+
+  
+  settingsChangeTheme = (e) => {
+    console.log(e)
+    localStorage.setItem('theme', e);
   }
 
   toggleSettings = () => {
-    console.log('modal toggled!')
     this.setState((prevState) =>({showModal: !prevState.showModal}))
   }
 
@@ -115,7 +120,12 @@ class App extends Component {
             <button className="gear-img-wrapper" onClick={this.toggleSettings}>
               <img src={gear} alt="settings gear icon"/>
             </button>
-            {showModal ? <SettingsModal settingsChange={this.settingsChange}/> : ""}
+            { showModal 
+              ? <SettingsModal 
+                  settingsChangeUnits={this.settingsChangeUnits}
+                  settingsChangeTheme={this.settingsChangeTheme}
+                />
+              : "" }
             <div className="error">{error ? error : ""}</div>
             <div className="location">
               <h2>{weatherData == null ? "City" : firstWeatherData.name}</h2>

@@ -173,6 +173,7 @@ main {
 .settings-modal {
     outline: black solid 1px;
     position: absolute;
+    padding: 10px;
     left: 10rem;
     height: 10rem;
     width: 10rem;
