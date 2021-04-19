@@ -16,7 +16,8 @@ class App extends Component {
     this.state = {
         city: "",
         state: "",
-        units: sessionStorage.units || 'imperial',
+        units: localStorage.units || 'imperial',
+        theme: localStorage.theme || 'light',
         showModal: false,
         weatherData: null,
         background: 'default',
@@ -77,7 +78,6 @@ class App extends Component {
     localStorage.setItem('units', e);
   }
 
-  
   settingsChangeTheme = (e) => {
     console.log(e)
     localStorage.setItem('theme', e);
