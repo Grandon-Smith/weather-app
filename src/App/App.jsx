@@ -28,6 +28,7 @@ class App extends Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const { city, state, units } = this.state
+    console.log('units = ', units)
     if(!city) {
       this.setState({error: `Please select a city.`})
       return

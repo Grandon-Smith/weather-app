@@ -12,8 +12,8 @@ class SettingsModal extends Component {
                         <input 
                             type="radio" 
                             name="unit" 
-                            value="imperial" 
-                            defaultChecked
+                            value='imperial' 
+                            defaultChecked={localStorage.getItem('units') === 'imperial'}
                             onChange={e => this.props.settingsChangeUnits(e.target.value)}
                         />
                         <label>Metric: </label>
@@ -31,7 +31,7 @@ class SettingsModal extends Component {
                             type="radio" 
                             name="theme"
                             value="light"
-                            defaultChecked
+                            defaultChecked={localStorage.getItem('units') === 'imperial'}
                             onChange={e => this.props.settingsChangeTheme(e.target.value)}
                         />
                         <label>Dark Theme: </label>
