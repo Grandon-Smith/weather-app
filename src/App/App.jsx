@@ -77,6 +77,7 @@ class App extends Component {
   settingsChangeUnits = (e) => {
     // console.log(e)
     localStorage.setItem('units', e);
+    this.setState({units: e})
     console.log(this.state)
   }
 

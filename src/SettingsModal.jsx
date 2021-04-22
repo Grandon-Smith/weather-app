@@ -14,7 +14,7 @@ class SettingsModal extends Component {
                                 type="radio" 
                                 name="unit" 
                                 value='imperial' 
-                                defaultChecked={localStorage.getItem('units') === 'imperial'}
+                                defaultChecked={localStorage.units === 'imperial'}
                                 onChange={e => this.props.settingsChangeUnits(e.target.value)}
                             />
                         </div>
@@ -24,6 +24,7 @@ class SettingsModal extends Component {
                                 type="radio" 
                                 name="unit" 
                                 value="metric"
+                                defaultChecked={localStorage.units === 'metric'}
                                 onChange={e => this.props.settingsChangeUnits(e.target.value)}
                             />
                         </div>
@@ -36,7 +37,7 @@ class SettingsModal extends Component {
                                 type="radio" 
                                 name="theme"
                                 value="light"
-                                defaultChecked={localStorage.getItem('units') === 'imperial'}
+                                defaultChecked={localStorage.theme === 'light'}
                                 onChange={e => this.props.settingsChangeTheme(e.target.value)}
                             />
                         </div>
@@ -46,6 +47,7 @@ class SettingsModal extends Component {
                                 type="radio" 
                                 name="theme"
                                 value="dark"
+                                defaultChecked={localStorage.theme === 'dark'}
                                 onChange={e => this.props.settingsChangeTheme(e.target.value)}
                             />
                         </div>
