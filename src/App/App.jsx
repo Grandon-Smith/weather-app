@@ -75,12 +75,13 @@ class App extends Component {
   }
 
   settingsChangeUnits = (e) => {
-    console.log(e)
+    // console.log(e)
     localStorage.setItem('units', e);
+    console.log(this.state)
   }
 
   settingsChangeTheme = (e) => {
-    console.log(e)
+    // console.log(e)
     localStorage.setItem('theme', e);
   }
 

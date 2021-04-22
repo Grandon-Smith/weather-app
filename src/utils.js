@@ -23,7 +23,7 @@ export function generateWeeklyWeather(moreWeatherData) {
         return (
             <div className={`sec-4-${idx}`} key={idx}>
                 <p>{ moment(day).add([idx+1], 'd').format('ddd') }</p>
-                <p>{ d.temp.day }°</p>
+                <p>{ Math.round(d.temp.day) }°</p>
                 <div className="icon-wrapper-daily">
                     { <img src={`http://openweathermap.org/img/wn/${d.weather[0].icon}@2x.png`}
                     alt={`icon for ${d.weather[0].description}`}/> }

@@ -176,11 +176,17 @@ main {
     position: absolute;
     padding: 10px;
     left: 10rem;
-    height: 10rem;
+    height: 12rem;
     width: 10rem;
     background-color: rgb(163, 129, 129);
 }
 
+.units-select,
+.theme-select {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
 
 .error {
     text-align: center;
